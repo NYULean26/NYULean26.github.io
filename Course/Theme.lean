@@ -26,6 +26,7 @@ private def documentTemplate : Template := do
         <title>{{title}}" · "{{info.term}}</title>
         {{← builtinHeader}}
         <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+        <link rel="icon" href="assets/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)"/>
         <link rel="stylesheet" href="assets/styles.css"/>
       </head>
       <body>{{← param "content"}}</body>

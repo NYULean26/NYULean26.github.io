@@ -36,7 +36,7 @@ Model → Content → Components → Home → Site ─┐
 - [`Course/Site.lean`](Course/Site.lean) connects the home page and static assets.
 - [`Course.lean`](Course.lean) is the public umbrella for the site and theme.
 - [`Main.lean`](Main.lean) pairs them in the executable entry point.
-- [`assets/styles.css`](assets/styles.css) and [`assets/favicon.svg`](assets/favicon.svg) are the hand-written static assets.
+- [`assets/styles.css`](assets/styles.css) and the light/dark browser favicons are the hand-written static assets.
 
 To attach a worksheet or lecture file to a meeting, add a `ResourceLink` to that
 meeting's `materials` array. Course-work entries already accept an optional URL.
