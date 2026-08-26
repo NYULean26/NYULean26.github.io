@@ -1,0 +1,15 @@
+name = "computer-assisted-formalization"
+version = "0.1.0"
+defaultTargets = ["Course", "generate-site"]
+
+[[require]]
+name = "verso"
+git = "https://github.com/leanprover/verso.git"
+rev = "v4.33.0"
+
+[[lean_lib]]
+name = "Course"
+
+[[lean_exe]]
+name = "generate-site"
+root = "Main"
