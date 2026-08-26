@@ -1,6 +1,6 @@
 # Computer-Assisted Formalization of Mathematics
 
-Course website for **Computer-Assisted Formalization of Mathematics**, taught at New York University in Fall 2026. The site welcomes both enrolled students and independent learners following along with the open course materials.
+Course website for **Computer-Assisted Formalization of Mathematics**, taught at New York University in Fall 2026. The linked books and Lean materials are public and may also be used for independent study.
 
 - DS-GA 3001 · Section 007: Special Topics in Data Science
 - MATH-GA 2650: Advanced Topics in Analysis
