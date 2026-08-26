@@ -23,10 +23,10 @@ Then open <http://localhost:8000>.
 
 ## Update the site
 
-Weekly topics and book links live in `Course/Data.lean`. The Verso page and theme live in `Course/FrontPage.lean` and `Main.lean`; visual styles and progressive enhancements live in `assets/`.
+Meeting dates, weekly topics, readings, and book links live in `Course/Data.lean`. The Verso page and theme live in `Course/FrontPage.lean` and `Main.lean`; visual styles live in `assets/`.
 
 Pushing to the `main` branch runs the pinned Lean 4 + Verso build and republishes the generated `_site/` artifact with GitHub Pages.
 
 ## Status
 
-The Fall 2026 course plan is still in progress. Recitation details, TA office hours, and week-by-week reading and worksheet pointers are marked as forthcoming on the website.
+The Fall 2026 course plan is still in progress. Lecture files, course-specific worksheets, project dates, recitation details, and TA office hours remain forthcoming.

@@ -5,20 +5,38 @@ open Verso Genre Blog Site Syntax
 open Course
 
 open Verso.Output Html in
-private def weekRow (week : Week) : Html :=
+private def courseLink (link : CourseLink) : Html :=
+  {{ <span class="course-link"><a href={{link.url}}>{{link.label}}</a></span> }}
+
+open Verso.Output Html in
+private def linksOrDash (links : Array CourseLink) : Html :=
+  if links.isEmpty then
+    {{ <span class="empty">"—"</span> }}
+  else
+    {{ <span class="course-links">{{links.map courseLink}}</span> }}
+
+open Verso.Output Html in
+private def workOrDash (work : Option String) : Html :=
+  match work with
+  | none => {{ <span class="empty">"—"</span> }}
+  | some workText => {{ <span>{{workText}}</span> }}
+
+open Verso.Output Html in
+private def meetingRow (meeting : Meeting) : Html :=
   let detail :=
-    match week.detail with
+    match meeting.detail with
     | none => Html.empty
-    | some detailText => {{ <span class="topic-detail">{{detailText}}</span> }}
-  let milestone :=
-    match week.milestone with
-    | none => Html.empty
-    | some (label, _) => {{ <span class="milestone">{{label}}</span> }}
+    | some detailText => {{ <span class="meeting-detail">{{detailText}}</span> }}
+  let week :=
+    if meeting.number.isEmpty then Html.empty
+    else {{ <span class="week-number">"W"{{meeting.number}}</span> }}
+  let rowClass := if meeting.noClass then "no-class" else ""
   {{
-    <tr>
-      <td class="week">{{week.number}}</td>
-      <td><strong>{{week.title}}</strong>{{detail}}</td>
-      <td>{{milestone}}</td>
+    <tr class={{rowClass}}>
+      <td class="date-cell"><time>{{meeting.date}}</time>{{week}}</td>
+      <td class="topic-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
+      <td class="reading-cell">{{linksOrDash meeting.readings}}</td>
+      <td class="work-cell">{{workOrDash meeting.work}}</td>
     </tr>
   }}
 
@@ -26,12 +44,9 @@ open Verso.Output Html in
 private def bookItem (book : Book) : Html :=
   {{
     <li>
-      <div class="book-title"><cite>{{book.title}}</cite> <span class="abbreviation">"("{{book.abbreviation}}")"</span></div>
-      <div class="authors">"by "{{book.authors}}</div>
-      <p>{{book.description}}</p>
-      <div class="book-links">
-        <a href={{book.readUrl}}>"read online"</a><span aria-hidden="true">"·"</span><a href={{book.codeUrl}}>"Lean files"</a>
-      </div>
+      <cite>{{book.title}}</cite> <span class="abbreviation">"("{{book.abbreviation}}")"</span>
+      <span class="book-author">" — "{{book.authors}}</span>
+      <span class="book-links"><a href={{book.readUrl}}>"text"</a>" · "<a href={{book.codeUrl}}>"Lean files"</a></span>
     </li>
   }}
 
@@ -44,105 +59,90 @@ def courseTheme : Theme := { Theme.default with
         <head>
           <meta charset="utf-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <meta name="description" content="Fall 2026 NYU course materials for Computer-Assisted Formalization of Mathematics, using Lean 4 and Mathlib."/>
-          <meta name="theme-color" content="#f4f0e7"/>
-          <meta property="og:title" content="Computer-Assisted Formalization of Mathematics"/>
-          <meta property="og:description" content="Fall 2026 NYU course materials for formalizing mathematics in Lean 4."/>
-          <meta property="og:type" content="website"/>
-          <title>"Computer-Assisted Formalization of Mathematics · NYU"</title>
+          <meta name="description" content="Fall 2026 NYU course schedule and materials for Computer-Assisted Formalization of Mathematics."/>
+          <meta name="theme-color" content="#ffffff"/>
+          <title>"Computer-Assisted Formalization of Mathematics · Fall 2026"</title>
           <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
           <link rel="stylesheet" href="assets/styles.css"/>
         </head>
         <body>
-          <a class="skip-link" href="#main-content">"Skip to content"</a>
-          <div class="page-shell">
-            <header class="course-header">
-              <div class="header-line"><span>"New York University · Fall 2026"</span><a href="https://github.com/LeanNYU26">"LeanNYU26"</a></div>
-              <h1>"Computer-Assisted Formalization "<em>"of Mathematics"</em></h1>
-              <p class="course-listings">"DS-GA 3001 · 007 / MATH-GA 2650"</p>
-              <nav aria-label="Course navigation">
-                <a href="#course">"Course"</a>
+          <a class="skip-link" href="#main-content">"Skip to course schedule"</a>
+          <div class="site">
+            <header class="site-header">
+              <p class="university">"New York University · Fall 2026"</p>
+              <h1>"Computer-Assisted Formalization of Mathematics"</h1>
+              <p class="course-number">"DS-GA 3001 · 007 / MATH-GA 2650"</p>
+              <p class="meeting-line">"Wednesdays, 10:15 am–12:15 pm · 12 Waverly Place, room L120"</p>
+              <nav aria-label="Course page">
                 <a href="#schedule">"Schedule"</a>
-                <a href="#work">"Work"</a>
-                <a href="#reading">"Reading"</a>
-                <a href="#contact">"Contact"</a>
+                <a href="#coursework">"Course work"</a>
+                <a href="#books">"Books and files"</a>
+                <a href="#information">"Information"</a>
               </nav>
             </header>
 
             <main id="main-content">
-              <section id="course" aria-labelledby="course-heading">
-                <h2 id="course-heading">"Course"</h2>
-                <p class="lede">"This course concerns the formalization of mathematics in Lean 4 and Mathlib."</p>
-                <p>"Topics include dependent type theory, mathematical libraries, functional programming, metaprogramming, proof automation, and AI-assisted theorem proving. Work in the course consists primarily of reading and writing Lean."</p>
-
-                <dl class="course-meta">
-                  <div><dt>"Lecture"</dt><dd>"Wednesdays, 10:15 am–12:15 pm"</dd></div>
-                  <div><dt>"Room"</dt><dd>"12 Waverly Place, L120"</dd></div>
-                  <div><dt>"Instructor"</dt><dd>"Jaume de Dios Pont · "<a href="mailto:jdedios@nyu.edu">"jdedios@nyu.edu"</a></dd></div>
-                  <div><dt>"Office hours"</dt><dd>"Tuesdays, 4–5 pm · 60 Fifth Ave, 615"</dd></div>
-                  <div><dt>"Section leader"</dt><dd>"Niket Patel · "<a href="mailto:nnp5656@nyu.edu">"nnp5656@nyu.edu"</a></dd></div>
-                  <div><dt>"Recitation"</dt><dd>"Time and location to be announced"</dd></div>
-                </dl>
-
-                <aside class="open-note">
-                  "The books and Lean worksheets linked below are public and may also be used for independent study."
-                </aside>
-
-                <h3>"Topics and skills"</h3>
-                <ul class="plain-list">
-                  <li>"Read, write, and debug Lean definitions, statements, and proofs."</li>
-                  <li>"Work with propositions-as-types, dependent types, universes, and inductive types."</li>
-                  <li>"Translate informal mathematics into precise, machine-checkable form."</li>
-                  <li>"Find and reuse definitions and theorems in Mathlib."</li>
-                  <li>"Understand simple metaprograms, tactics, automation, and AI-assisted proof methods."</li>
-                </ul>
-
-                <details>
-                  <summary>"Background expected"</summary>
-                  <p>"You should know one programming language, basic Git, elementary proof techniques, and proof-based calculus and linear algebra. No previous Lean experience is expected."</p>
-                </details>
+              <section id="announcements" class="announcements" aria-labelledby="announcements-heading">
+                <h2 id="announcements-heading">"Announcements"</h2>
+                <div class="announcement">
+                  <time datetime="2026-08-26">"Aug 26"</time>
+                  <p>"The first class is Wednesday, September 2. Bring a laptop. You can "<a href="https://lean-lang.org/install/">"install Lean and the VS Code extension"</a>" before class; we will begin with the "<a href="https://adam.math.hhu.de/">"Natural Number Game"</a>"."</p>
+                </div>
               </section>
 
               <section id="schedule" aria-labelledby="schedule-heading">
-                <div class="section-heading"><h2 id="schedule-heading">"Schedule"</h2><span>"tentative · 14 weeks"</span></div>
-                <table>
-                  <caption class="visually-hidden">"Weekly course schedule"</caption>
-                  <thead><tr><th scope="col">"Wk"</th><th scope="col">"Topic"</th><th scope="col">"Course work"</th></tr></thead>
-                  <tbody>{{weeks.map weekRow}}</tbody>
-                </table>
-                <p class="small-note">"In weeks 10–14, recitation may split into an advanced mathematics track (for example topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning)."</p>
-              </section>
-
-              <section id="work" aria-labelledby="work-heading">
-                <h2 id="work-heading">"Work"</h2>
-                <div class="work-list">
-                  <article><div><h3>"Homework"</h3><span>"20%"</span></div><p>"Four Lean worksheets, due at the end of weeks 2, 4, 6, and 8. Each follows recitation and prepares you for the next quiz."</p></article>
-                  <article><div><h3>"Quizzes"</h3><span>"40%"</span></div><p>"Four short in-person quizzes—about 20 minutes each—in weeks 3, 5, 7, and 9."</p></article>
-                  <article><div><h3>"Final project"</h3><span>"40%"</span></div><p>"A substantial formalization project. You should be ready to explain and work with every part of the resulting codebase."</p></article>
+                <h2 id="schedule-heading">"Schedule, readings, and files"</h2>
+                <p class="section-note">"The plan is provisional. Lecture files and course worksheets will be added to the corresponding row as the semester runs."</p>
+                <div class="table-wrap">
+                  <table>
+                    <caption class="visually-hidden">"Fall 2026 course schedule"</caption>
+                    <thead><tr><th scope="col">"Date"</th><th scope="col">"Class"</th><th scope="col">"Read"</th><th scope="col">"Course work"</th></tr></thead>
+                    <tbody>{{meetings.map meetingRow}}</tbody>
+                  </table>
                 </div>
-                <p class="small-note"><strong>"AI and submitted work."</strong> " Homework and quizzes in weeks 1–8 are completed without generative AI. From week 9 onward, AI is welcome for the final project with detailed disclosure and full ownership of the result."</p>
+                <p class="track-note"><strong>"Weeks 10–14."</strong> " Recitation may split into an advanced mathematics track (for example, topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning)."</p>
               </section>
 
-              <section id="reading" aria-labelledby="reading-heading">
-                <div class="section-heading"><h2 id="reading-heading">"Reading and Lean worksheets"</h2><span>"open online"</span></div>
-                <p>"The class draws from the following books and their corresponding Lean files."</p>
-                <ol class="reading-list">{{courseBooks.map bookItem}}</ol>
-
-                <h3>"Further references"</h3>
-                <ol class="reading-list secondary">{{companionBooks.map bookItem}}</ol>
-
-                <p class="tools"><strong>"Also useful:"</strong> " "<a href="https://lean-lang.org/install/">"install Lean"</a>", the "<a href="https://adam.math.hhu.de/">"Natural Number Game"</a>", and the "<a href="https://leanprover-community.github.io/mathlib4_docs/">"Mathlib documentation"</a>"."</p>
+              <section id="coursework" aria-labelledby="coursework-heading">
+                <h2 id="coursework-heading">"Course work"</h2>
+                <ul class="compact-list">
+                  <li><strong>"Homework 1–4."</strong> " Lean worksheets due at the end of weeks 2, 4, 6, and 8. Submission is through Gradescope."</li>
+                  <li><strong>"Quizzes 1–4."</strong> " Short in-person quizzes in recitation during weeks 3, 5, 7, and 9."</li>
+                  <li><strong>"Final project."</strong> " A substantial Lean formalization. Project instructions and the due date will be posted here."</li>
+                </ul>
               </section>
 
-              <section id="contact" aria-labelledby="contact-heading">
-                <h2 id="contact-heading">"Contact"</h2>
-                <p>"Questions about the course: "<a href="mailto:jdedios@nyu.edu">"jdedios@nyu.edu"</a>". Questions about recitation: "<a href="mailto:nnp5656@nyu.edu">"nnp5656@nyu.edu"</a>"."</p>
+              <section id="books" aria-labelledby="books-heading">
+                <h2 id="books-heading">"Books and Lean files"</h2>
+                <p>"The course draws from these online books and their accompanying Lean repositories."</p>
+                <h3>"Principal texts"</h3>
+                <ul class="book-list">{{courseBooks.map bookItem}}</ul>
+                <h3>"Additional references"</h3>
+                <ul class="book-list">{{companionBooks.map bookItem}}</ul>
+
+                <h3>"Setup and reference"</h3>
+                <ul class="link-list">
+                  <li><a href="https://lean-lang.org/install/">"Install Lean 4 and the VS Code extension"</a></li>
+                  <li><a href="https://lean-lang.org/doc/reference/latest/">"Lean language reference"</a></li>
+                  <li><a href="https://leanprover-community.github.io/mathlib4_docs/">"Mathlib documentation"</a></li>
+                  <li><a href="https://github.com/LeanNYU26">"LeanNYU26 on GitHub"</a></li>
+                </ul>
+              </section>
+
+              <section id="information" aria-labelledby="information-heading">
+                <h2 id="information-heading">"Course information"</h2>
+                <dl class="course-info">
+                  <div><dt>"Instructor"</dt><dd>"Jaume de Dios Pont · "<a href="mailto:jdedios@nyu.edu">"jdedios@nyu.edu"</a></dd></div>
+                  <div><dt>"Office hours"</dt><dd>"Tuesdays, 4–5 pm · 60 Fifth Avenue, office 615"</dd></div>
+                  <div><dt>"Section leader"</dt><dd>"Niket Patel · "<a href="mailto:nnp5656@nyu.edu">"nnp5656@nyu.edu"</a></dd></div>
+                  <div><dt>"Recitation"</dt><dd>"Time and room to be announced"</dd></div>
+                </dl>
               </section>
             </main>
 
             <footer>
               <div class="verso-credit">{{versoCredit}}</div>
-              <div class="footer-line"><span>"Last revised August 2026"</span><a href="https://github.com/LeanNYU26/computer-assisted-formalization">"source"</a></div>
+              <p><a href="https://github.com/LeanNYU26/computer-assisted-formalization">"Site source"</a>" · Last updated August 26, 2026"</p>
             </footer>
           </div>
         </body>
