@@ -94,14 +94,14 @@ def courseTheme : Theme := { Theme.default with
                     <tbody>{{meetings.map meetingRow}}</tbody>
                   </table>
                 </div>
-                <p class="track-note"><strong>"Weeks 10–14."</strong> " Recitation may split into an advanced mathematics track (for example, topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning)."</p>
+                <p class="track-note"><strong>"Weeks 10–14."</strong> " The lab may split into an advanced mathematics track (for example, topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning)."</p>
               </section>
 
               <section id="coursework" aria-labelledby="coursework-heading">
                 <h2 id="coursework-heading">"Course work"</h2>
                 <ul class="compact-list">
                   <li><strong>"Homework 1–4."</strong> " Lean worksheets due at the end of weeks 2, 4, 6, and 8. Submission is through Gradescope."</li>
-                  <li><strong>"Quizzes 1–4."</strong> " Short in-person quizzes in recitation during weeks 3, 5, 7, and 9."</li>
+                  <li><strong>"Quizzes 1–4."</strong> " Short in-person quizzes in lab during weeks 3, 5, 7, and 9."</li>
                   <li><strong>"Final project."</strong> " A substantial Lean formalization. Project instructions and the due date will be posted here."</li>
                 </ul>
               </section>
@@ -119,7 +119,7 @@ def courseTheme : Theme := { Theme.default with
                   <li><a href="https://lean-lang.org/install/">"Install Lean 4 and the VS Code extension"</a></li>
                   <li><a href="https://lean-lang.org/doc/reference/latest/">"Lean language reference"</a></li>
                   <li><a href="https://leanprover-community.github.io/mathlib4_docs/">"Mathlib documentation"</a></li>
-                  <li><a href="https://github.com/LeanNYU26">"LeanNYU26 on GitHub"</a></li>
+                  <li><a href="https://github.com/NYULean26">"NYULean26 on GitHub"</a></li>
                 </ul>
               </section>
 
@@ -129,14 +129,14 @@ def courseTheme : Theme := { Theme.default with
                   <div><dt>"Instructor"</dt><dd>"Jaume de Dios Pont · "<a href="mailto:jdedios@nyu.edu">"jdedios@nyu.edu"</a></dd></div>
                   <div><dt>"Office hours"</dt><dd>"Tuesdays, 4–5 pm · 60 Fifth Avenue, office 615"</dd></div>
                   <div><dt>"Section leader"</dt><dd>"Niket Patel · "<a href="mailto:nnp5656@nyu.edu">"nnp5656@nyu.edu"</a></dd></div>
-                  <div><dt>"Recitation"</dt><dd>"Time and room to be announced"</dd></div>
+                  <div><dt>"Lab"</dt><dd>"Thursdays, 11:15 am–12:05 pm · room to be announced"</dd></div>
                 </dl>
               </section>
             </main>
 
             <footer>
               <div class="verso-credit">{{versoCredit}}</div>
-              <p><a href="https://github.com/LeanNYU26/computer-assisted-formalization">"Site source"</a>" · Last updated August 26, 2026"</p>
+              <p><a href="https://github.com/NYULean26/NYULean26.github.io">"Site source"</a>" · Last updated August 26, 2026"</p>
             </footer>
           </div>
         </body>

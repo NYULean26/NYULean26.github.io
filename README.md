@@ -29,4 +29,4 @@ Pushing to the `main` branch runs the pinned Lean 4 + Verso build and republishe
 
 ## Status
 
-The Fall 2026 course plan is still in progress. Lecture files, course-specific worksheets, project dates, recitation details, and TA office hours remain forthcoming.
+The Fall 2026 course plan is still in progress. Lecture files, course-specific worksheets, project dates, the lab room, and TA office hours remain forthcoming.
