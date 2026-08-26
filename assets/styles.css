@@ -1168,9 +1168,8 @@ p {
 .footer-wordmark .wordmark-mark { width: 29px; height: 29px; border-radius: 8px; font-size: 16px; }
 
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .65s ease, transform .65s ease;
+  opacity: 1;
+  transform: none;
 }
 
 [data-reveal].is-visible {
