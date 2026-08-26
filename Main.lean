@@ -73,12 +73,6 @@ def courseTheme : Theme := { Theme.default with
               <h1>"Computer-Assisted Formalization of Mathematics"</h1>
               <p class="course-number">"DS-GA 3001 · 007 / MATH-GA 2650"</p>
               <p class="meeting-line">"Wednesdays, 10:15 am–12:15 pm · 12 Waverly Place, room L120"</p>
-              <nav aria-label="Course page">
-                <a href="#schedule">"Schedule"</a>
-                <a href="#coursework">"Course work"</a>
-                <a href="#books">"Books and files"</a>
-                <a href="#information">"Information"</a>
-              </nav>
             </header>
 
             <main id="main-content">

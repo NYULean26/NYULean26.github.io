@@ -86,14 +86,6 @@ h1 {
 
 .course-number { color: var(--muted); }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35rem 1.2rem;
-  margin-top: 1rem;
-  font-size: .9rem;
-}
-
 main > section {
   padding: 2rem 0 2.2rem;
   border-bottom: 1px solid var(--rule);
@@ -324,7 +316,7 @@ footer p,
   body { font-size: 10.5pt; }
   .site { width: 100%; }
   .site-header { padding-top: 0; }
-  nav, .skip-link { display: none; }
+  .skip-link { display: none; }
   main > section { padding: 1rem 0; }
   a { color: inherit; }
   footer { padding-bottom: 0; }
