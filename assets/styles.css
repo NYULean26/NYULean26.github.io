@@ -104,7 +104,7 @@ h3 {
   font-size: 1rem;
 }
 
-.announcements {
+main > section:first-child {
   padding-top: 1.55rem;
 }
 
@@ -117,10 +117,9 @@ h3 {
   border-left: 3px solid var(--accent);
 }
 
-.announcement time {
+.announcement > p:first-child {
   color: var(--muted);
   font-size: .84rem;
-  font-weight: 700;
 }
 
 .announcement p { margin: 0; }
@@ -131,6 +130,9 @@ h3 {
   color: var(--muted);
   font-size: .91rem;
 }
+
+.section-note p,
+.track-note p { margin: 0; }
 
 .table-wrap { overflow-x: auto; }
 
@@ -205,9 +207,9 @@ td:last-child { padding-right: 0; }
   font-size: .88rem;
 }
 
-.compact-list,
 .book-list,
-.link-list {
+.compact-list ul,
+.link-list ul {
   padding-left: 1.2rem;
   margin: .65rem 0 0;
 }
@@ -215,6 +217,9 @@ td:last-child { padding-right: 0; }
 .compact-list li,
 .book-list li,
 .link-list li { margin: .42rem 0; }
+
+.compact-list li p,
+.link-list li p { margin: 0; }
 
 .book-list { max-width: 900px; }
 .book-list li { margin-bottom: .7rem; }
