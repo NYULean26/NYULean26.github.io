@@ -37,12 +37,12 @@ private def meetingRow (meeting : Meeting) : Html :=
     match meeting.kind with
     | .lecture number => (#[], {{ <span class="week-number">{{s!"W{number}"}}</span> }})
     | .noClass => (#[("class", "no-class")], Html.empty)
-  let resources := meeting.readings ++ meeting.materials
+  let resources := meeting.sourceMaterial ++ meeting.materials
   {{
     <tr {{rowAttributes}}>
       <td class="date-cell"><time datetime={{meeting.date.iso}}>{{meeting.date.label}}</time>{{week}}</td>
       <td class="topic-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
-      <td class="reading-cell">{{linksOrDash resources}}</td>
+      <td class="material-cell">{{linksOrDash resources}}</td>
       <td class="work-cell">{{workOrDash meeting.work}}</td>
     </tr>
   }}
@@ -54,7 +54,7 @@ def scheduleTable : Html :=
       <table>
         <caption class="visually-hidden">{{s!"{Course.courseInfo.term} course schedule"}}</caption>
         <thead>
-          <tr><th scope="col">"Date"</th><th scope="col">"Class"</th><th scope="col">"Read / files"</th><th scope="col">"Course work"</th></tr>
+          <tr><th scope="col">"Date"</th><th scope="col">"Class"</th><th scope="col">"Source material / files"</th><th scope="col">"Course work"</th></tr>
         </thead>
         <tbody>{{Course.schedule.map meetingRow}}</tbody>
       </table>

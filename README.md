@@ -29,7 +29,7 @@ Model → Content → Components → Home → Site ─┐
 ```
 
 - [`Course/Model.lean`](Course/Model.lean) defines the course-domain types without depending on Verso or HTML.
-- [`Course/Content.lean`](Course/Content.lean) contains the semester facts: meetings, readings, books, and staff information.
+- [`Course/Content.lean`](Course/Content.lean) contains the semester facts: meetings, source material, books, and staff information.
 - [`Course/Components.lean`](Course/Components.lean) renders the repeated, data-driven parts as semantic HTML.
 - [`Course/Home.lean`](Course/Home.lean) is the actual Verso document. Its order matches the visible page, so ordinary prose edits belong here.
 - [`Course/Theme.lean`](Course/Theme.lean) owns the document shell, course header, and footer.

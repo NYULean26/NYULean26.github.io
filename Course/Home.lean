@@ -26,7 +26,7 @@ The first class is Wednesday, September 2. Bring a laptop. Before class, you can
 
 :::
 
-# Schedule, readings, and files
+# Schedule, source material, and files
 %%%
 htmlId := some "schedule"
 %%%

@@ -8,7 +8,7 @@ rendered.
 
 namespace Course
 
-/-- A labeled link to a reading, worksheet, or other course resource. -/
+/-- A labeled link to source material, a worksheet, or another course resource. -/
 structure ResourceLink where
   label : String
   url : String
@@ -34,7 +34,7 @@ structure Meeting where
   kind : MeetingKind
   title : String
   detail : Option String := none
-  readings : Array ResourceLink := #[]
+  sourceMaterial : Array ResourceLink := #[]
   materials : Array ResourceLink := #[]
   work : Option CourseWork := none
 

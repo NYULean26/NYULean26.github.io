@@ -165,7 +165,7 @@ td:last-child { padding-right: 0; }
 
 .date-cell { width: 5.6rem; white-space: nowrap; }
 .topic-cell { width: 39%; }
-.reading-cell { width: 21%; }
+.material-cell { width: 21%; }
 .work-cell { width: 8.5rem; }
 
 .date-cell time,
@@ -307,9 +307,9 @@ footer p,
   }
 
   .topic-cell { margin-bottom: .38rem; }
-  .reading-cell::before { content: "Read: "; color: var(--muted); }
+  .material-cell::before { content: "Material: "; color: var(--muted); }
   .work-cell::before { content: "Work: "; color: var(--muted); }
-  .reading-cell,
+  .material-cell,
   .work-cell { font-size: .84rem; }
   .no-class { min-height: 4.1rem; background: #fafafa; }
 
