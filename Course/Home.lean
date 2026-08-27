@@ -61,7 +61,7 @@ htmlId := some "coursework"
 
 * *Homework 1–4.* Lean worksheets due at the end of weeks 2, 4, 6, and 8. Submission is through Gradescope.
 * *Quizzes 1–4.* Short in-person quizzes in lab during weeks 3, 5, 7, and 9.
-* *Final project.* A substantial Lean formalization. Project instructions and the due date will be posted here.
+* *Final project.* Project instructions and the due date will be posted here.
 
 :::
 
