@@ -26,14 +26,14 @@ The first class is Wednesday, September 2. Bring a laptop. Before class, you can
 
 :::
 
-# Schedule, source material, and files
+# Schedule and course materials
 %%%
 htmlId := some "schedule"
 %%%
 
 :::htmlDiv (class := "section-note")
 
-The plan is provisional. Lecture files and course worksheets will be added to the corresponding row as the semester runs.
+Lecture files and course worksheets will be added to the corresponding row as the semester runs.
 
 :::
 
@@ -42,7 +42,13 @@ The plan is provisional. Lecture files and course worksheets will be added to th
 
 :::htmlDiv (class := "track-note")
 
-*Weeks 10–14.* The lab may split into an advanced mathematics track (for example, topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning).
+*Weeks 10–14.* The discussion section may split into an advanced mathematics track (for example, topology and measure theory) and an AI4Lean track (proof search, agents, and reinforcement learning).
+
+:::
+
+:::htmlDiv (class := "track-note")
+
+The plan may change slightly as the semester progresses.
 
 :::
 

@@ -66,7 +66,7 @@ private def bookItem (book : Book) : Html :=
     <li>
       <cite>{{book.title}}</cite> <span class="abbreviation">"("{{book.abbreviation}}")"</span>
       <span class="book-author">" — "{{book.authors}}</span>
-      <span class="book-links"><a href={{book.readUrl}}>"text"</a>" · "<a href={{book.codeUrl}}>"Lean files"</a></span>
+      <span class="book-links"><a href={{book.readUrl}}>"text"</a>" · "<a href={{book.codeUrl}}>"GitHub repo"</a></span>
     </li>
   }}
 

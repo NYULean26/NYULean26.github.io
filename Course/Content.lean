@@ -54,8 +54,8 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-09-16" "Sep 16"
     kind := .lecture 3
-    title := "Dependent types and definitional equality"
-    detail := some "Universes and polymorphism."
+    title := "Dependent type theory"
+    detail := some "Definitional equality, universes, and polymorphism."
     sourceMaterial := #[
       ⟨"TPiL 2", "https://lean-lang.org/theorem_proving_in_lean4/Dependent-Type-Theory/"⟩
     ]
