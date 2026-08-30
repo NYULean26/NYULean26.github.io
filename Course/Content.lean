@@ -122,7 +122,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 8
     title := "Executable Lean and monads"
     detail := some "Option, Except, State, do notation, and IO."
-    application := some "Build an interpreter for a small language."
+    application := some "Turn the linear algebra and optimization examples into executable code."
     sourceMaterial := #[
       ⟨"FPiL 4–6", "https://lean-lang.org/functional_programming_in_lean/Monads/"⟩
     ]
