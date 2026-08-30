@@ -72,7 +72,7 @@ htmlId := some "books"
 
 The course draws from these online books and their accompanying Lean repositories.
 
-## Principal texts
+## Main references
 %%%
 htmlId := some "principal-texts"
 %%%
