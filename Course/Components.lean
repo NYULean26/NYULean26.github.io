@@ -13,15 +13,6 @@ namespace Course.Components
 
 open Verso.Output Html
 
-private def resourceLink (link : ResourceLink) : Html :=
-  {{ <span class="course-link"><a href={{link.url}}>{{link.label}}</a></span> }}
-
-private def linksOrDash (links : Array ResourceLink) : Html :=
-  if links.isEmpty then
-    {{ <span class="empty">"—"</span> }}
-  else
-    {{ <span class="course-links">{{links.map resourceLink}}</span> }}
-
 private def workOrDash (item : Option CourseWork) : Html :=
   match item with
   | none => {{ <span class="empty">"—"</span> }}
@@ -33,16 +24,19 @@ private def meetingRow (meeting : Meeting) : Html :=
     match meeting.detail with
     | none => Html.empty
     | some detailText => {{ <span class="meeting-detail">{{detailText}}</span> }}
+  let application :=
+    match meeting.application with
+    | none => {{ <span class="empty">"—"</span> }}
+    | some applicationText => {{ <span>{{applicationText}}</span> }}
   let (rowAttributes, week) :=
     match meeting.kind with
     | .lecture number => (#[], {{ <span class="week-number">{{s!"W{number}"}}</span> }})
     | .noClass => (#[("class", "no-class")], Html.empty)
-  let resources := meeting.sourceMaterial ++ meeting.materials
   {{
     <tr {{rowAttributes}}>
       <td class="date-cell"><time datetime={{meeting.date.iso}}>{{meeting.date.label}}</time>{{week}}</td>
-      <td class="topic-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
-      <td class="material-cell">{{linksOrDash resources}}</td>
+      <td class="concepts-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
+      <td class="application-cell">{{application}}</td>
       <td class="work-cell">{{workOrDash meeting.work}}</td>
     </tr>
   }}
@@ -54,7 +48,7 @@ def scheduleTable : Html :=
       <table>
         <caption class="visually-hidden">{{s!"{Course.courseInfo.term} course schedule"}}</caption>
         <thead>
-          <tr><th scope="col">"Date"</th><th scope="col">"Class"</th><th scope="col">"Source material / files"</th><th scope="col">"Course work"</th></tr>
+          <tr><th scope="col">"Date"</th><th scope="col">"Lean concepts"</th><th scope="col">"Applications"</th><th scope="col">"Course work"</th></tr>
         </thead>
         <tbody>{{Course.schedule.map meetingRow}}</tbody>
       </table>

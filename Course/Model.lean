@@ -34,6 +34,7 @@ structure Meeting where
   kind : MeetingKind
   title : String
   detail : Option String := none
+  application : Option String := none
   sourceMaterial : Array ResourceLink := #[]
   materials : Array ResourceLink := #[]
   work : Option CourseWork := none

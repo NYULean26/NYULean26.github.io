@@ -33,7 +33,7 @@ htmlId := some "schedule"
 
 :::htmlDiv (class := "section-note")
 
-Lecture files and course worksheets will be added to the corresponding row as the semester runs.
+Lecture files and course worksheets will be linked from the corresponding week as the semester runs.
 
 :::
 

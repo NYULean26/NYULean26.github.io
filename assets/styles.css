@@ -162,8 +162,8 @@ th:last-child,
 td:last-child { padding-right: 0; }
 
 .date-cell { width: 5.6rem; white-space: nowrap; }
-.topic-cell { width: 39%; }
-.material-cell { width: 21%; }
+.concepts-cell { width: 46%; }
+.application-cell { width: 27%; }
 .work-cell { width: 8.5rem; }
 
 .date-cell time,
@@ -178,18 +178,13 @@ td:last-child { padding-right: 0; }
   font-size: .72rem;
 }
 
-.topic-cell strong { font-weight: 700; }
+.concepts-cell strong { font-weight: 700; }
 
 .meeting-detail {
   margin-top: .13rem;
   color: var(--muted);
   font-size: .83rem;
   line-height: 1.4;
-}
-
-.course-link:not(:last-child)::after {
-  content: ", ";
-  color: var(--muted);
 }
 
 .empty { color: #8a9197; }
@@ -304,10 +299,10 @@ footer p,
     left: 0;
   }
 
-  .topic-cell { margin-bottom: .38rem; }
-  .material-cell::before { content: "Material: "; color: var(--muted); }
+  .concepts-cell { margin-bottom: .38rem; }
+  .application-cell::before { content: "Application: "; color: var(--muted); }
   .work-cell::before { content: "Work: "; color: var(--muted); }
-  .material-cell,
+  .application-cell,
   .work-cell { font-size: .84rem; }
   .no-class { min-height: 4.1rem; background: #fafafa; }
 

@@ -33,7 +33,8 @@ def schedule : Array Meeting := #[
     date := date "2026-09-02" "Sep 2"
     kind := .lecture 1
     title := "Introduction to Lean"
-    detail := some "Course organization; the editor and Infoview; the Natural Number Game."
+    detail := some "Expressions, definitions, theorem statements, the editor, and Infoview."
+    application := some "Elementary arithmetic with the Natural Number Game."
     sourceMaterial := #[
       ⟨"FPiL 1", "https://lean-lang.org/functional_programming_in_lean/Getting-to-Know-Lean/"⟩,
       ⟨"Natural Number Game", "https://adam.math.hhu.de/"⟩
@@ -43,8 +44,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-09-09" "Sep 9"
     kind := .lecture 2
-    title := "Propositions as types and proof terms"
-    detail := some "Logical connectives, tactics, and examples from combinatorics."
+    title := "Logic, proof terms, and tactics"
+    detail := some "Proofs as terms; logical connectives; forward and backward reasoning."
+    application := some "Elementary logic and combinatorics."
     sourceMaterial := #[
       ⟨"TPiL 3–5", "https://lean-lang.org/theorem_proving_in_lean4/Propositions-and-Proofs/"⟩,
       ⟨"MiL 3", "https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html"⟩
@@ -55,7 +57,8 @@ def schedule : Array Meeting := #[
     date := date "2026-09-16" "Sep 16"
     kind := .lecture 3
     title := "Dependent type theory"
-    detail := some "Definitional equality, universes, and polymorphism."
+    detail := some "Dependent functions, definitional equality, polymorphism, and universes."
+    application := some "Types as specifications: subtypes, vectors, and dimension-safe matrices."
     sourceMaterial := #[
       ⟨"TPiL 2", "https://lean-lang.org/theorem_proving_in_lean4/Dependent-Type-Theory/"⟩
     ]
@@ -64,8 +67,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-09-23" "Sep 23"
     kind := .lecture 4
-    title := "Induction and inductive types"
-    detail := some "Proofs with inductive data."
+    title := "Inductive types, recursion, and induction"
+    detail := some "Inductive data and propositions; structural recursion and induction."
+    application := some "Natural numbers, lists, trees, and evaluation relations."
     sourceMaterial := #[
       ⟨"TPiL 7–8", "https://lean-lang.org/theorem_proving_in_lean4/Inductive-Types/"⟩,
       ⟨"MiL 5", "https://leanprover-community.github.io/mathematics_in_lean/C05_Elementary_Number_Theory.html"⟩
@@ -75,7 +79,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-09-30" "Sep 30"
     kind := .lecture 5
-    title := "Structures, typeclasses, and inheritance"
+    title := "Structures, typeclasses, and algebraic structures"
+    detail := some "Instances, inheritance, synthesis, and generic theorems."
+    application := some "Build a small algebra hierarchy."
     sourceMaterial := #[
       ⟨"TPiL 9–10", "https://lean-lang.org/theorem_proving_in_lean4/Structures-and-Records/"⟩,
       ⟨"FPiL 3", "https://lean-lang.org/functional_programming_in_lean/Overloading-and-Type-Classes/"⟩
@@ -85,8 +91,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-10-07" "Oct 7"
     kind := .lecture 6
-    title := "Mathlib and Lean libraries"
-    detail := some "Finding lemmas; algebraic structures in Lean."
+    title := "Linear algebra in Mathlib"
+    detail := some "Mathlib's algebraic hierarchy, coercions, and generic theorems."
+    application := some "Linear regression and least squares."
     sourceMaterial := #[
       ⟨"MiL 2", "https://leanprover-community.github.io/mathematics_in_lean/C02_Basics.html"⟩,
       ⟨"MiL 7–9", "https://leanprover-community.github.io/mathematics_in_lean/C07_Structures.html"⟩
@@ -102,7 +109,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-10-21" "Oct 21"
     kind := .lecture 7
-    title := "Elementary analysis and optimization in Lean"
+    title := "Working effectively with Mathlib"
+    detail := some "Finding definitions and lemmas; namespaces, rewriting, and automation."
+    application := some "Analysis and optimization examples."
     sourceMaterial := #[
       ⟨"MiL 11–12", "https://leanprover-community.github.io/mathematics_in_lean/C11_Topology.html"⟩
     ]
@@ -111,8 +120,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-10-28" "Oct 28"
     kind := .lecture 8
-    title := "Executable code in Lean"
-    detail := some "Monads and functional programs."
+    title := "Executable Lean and monads"
+    detail := some "Option, Except, State, do notation, and IO."
+    application := some "Build an interpreter for a small language."
     sourceMaterial := #[
       ⟨"FPiL 4–6", "https://lean-lang.org/functional_programming_in_lean/Monads/"⟩
     ]
@@ -121,8 +131,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-04" "Nov 4"
     kind := .lecture 9
-    title := "Proofs about code"
-    detail := some "Introduction to operational semantics and Hoare logic."
+    title := "Program verification"
+    detail := some "Specifications, correctness, termination, and inductive semantics."
+    application := some "Operational semantics and Hoare logic."
     sourceMaterial := #[
       ⟨"LoVe 9–10", "https://github.com/lean-forward/logical_verification_2026/blob/main/hitchhikers_guide_2026_desktop.pdf"⟩
     ]
@@ -132,7 +143,8 @@ def schedule : Array Meeting := #[
     date := date "2026-11-11" "Nov 11"
     kind := .lecture 10
     title := "Lean under the hood"
-    detail := some "Axioms and Lean's trust surface."
+    detail := some "Syntax, macros, elaboration, expressions, and kernel checking."
+    application := some "Build a small language inside Lean."
     sourceMaterial := #[
       ⟨"TPiL 12", "https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/"⟩,
       ⟨"LoVe 12", "https://github.com/lean-forward/logical_verification_2026/blob/main/hitchhikers_guide_2026_desktop.pdf"⟩
@@ -142,8 +154,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-18" "Nov 18"
     kind := .lecture 11
-    title := "Metaprogramming in Lean"
-    detail := some "Expressions, syntax, elaboration, and macros."
+    title := "Tactic metaprogramming"
+    detail := some "Goals, metavariables, expressions, and recursive tactics."
+    application := some "Build a small positivity tactic."
     sourceMaterial := #[
       ⟨"MPiL", "https://leanprover-community.github.io/lean4-metaprogramming-book/"⟩
     ]
@@ -152,8 +165,9 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-25" "Nov 25"
     kind := .lecture 12
-    title := "Proof automation"
-    detail := some "Certificates and proofs by reflection."
+    title := "Trusted proof automation"
+    detail := some "Reflection, certificates, and the boundary between trusted and untrusted computation."
+    application := some "Build a small sum-of-squares certificate checker."
     sourceMaterial := #[
       ⟨"MPiL: tactics", "https://leanprover-community.github.io/lean4-metaprogramming-book/"⟩
     ]
@@ -163,12 +177,16 @@ def schedule : Array Meeting := #[
     date := date "2026-12-02" "Dec 2"
     kind := .lecture 13
     title := "Agentic Lean proof generation I"
+    detail := some "Proof states, retrieval, search loops, generation, and checking."
+    application := some "Explore a generate–check–retry proof agent."
     work := some (work "Project work")
   },
   {
     date := date "2026-12-09" "Dec 9"
     kind := .lecture 14
     title := "Agentic Lean proof generation II"
+    detail := some "Learned proof generation, tree search, verifier feedback, and reinforcement learning."
+    application := some "Run and evaluate an existing prover-training system."
     work := some (work "Project work")
   }
 ]
