@@ -46,7 +46,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 2
     title := "Logic, proof terms, and tactics"
     detail := some "Proofs as terms; logical connectives; forward and backward reasoning."
-    application := some "Elementary logic and combinatorics."
+    application := some "Proofs in elementary logic and combinatorics. Two ways of writing proofs in Lean."
     sourceMaterial := #[
       ⟨"TPiL 3–5", "https://lean-lang.org/theorem_proving_in_lean4/Propositions-and-Proofs/"⟩,
       ⟨"MiL 3", "https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html"⟩
@@ -58,7 +58,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 3
     title := "Dependent type theory"
     detail := some "Dependent functions, definitional equality, polymorphism, and universes."
-    application := some "Types as specifications: subtypes, vectors, and dimension-safe matrices."
+    application := some "Types as specifications: subtypes, vectors, matrices, & continuous functions."
     sourceMaterial := #[
       ⟨"TPiL 2", "https://lean-lang.org/theorem_proving_in_lean4/Dependent-Type-Theory/"⟩
     ]
@@ -69,7 +69,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 4
     title := "Inductive types, recursion, and induction"
     detail := some "Inductive data and propositions; structural recursion and induction."
-    application := some "Natural numbers, lists, trees, and evaluation relations."
+    application := some "Proving theorems about lists and trees."
     sourceMaterial := #[
       ⟨"TPiL 7–8", "https://lean-lang.org/theorem_proving_in_lean4/Inductive-Types/"⟩,
       ⟨"MiL 5", "https://leanprover-community.github.io/mathematics_in_lean/C05_Elementary_Number_Theory.html"⟩
@@ -81,7 +81,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 5
     title := "Structures, typeclasses, and algebraic structures"
     detail := some "Instances, inheritance, synthesis, and generic theorems."
-    application := some "Build a small algebra hierarchy."
+    application := some "Build a small hierarchy of algebraic structures."
     sourceMaterial := #[
       ⟨"TPiL 9–10", "https://lean-lang.org/theorem_proving_in_lean4/Structures-and-Records/"⟩,
       ⟨"FPiL 3", "https://lean-lang.org/functional_programming_in_lean/Overloading-and-Type-Classes/"⟩
@@ -93,7 +93,7 @@ def schedule : Array Meeting := #[
     kind := .lecture 6
     title := "Linear algebra in Mathlib"
     detail := some "Mathlib's algebraic hierarchy, coercions, and generic theorems."
-    application := some "Linear regression and least squares."
+    application := some "An application of linear algebra: Linear regression and least squares."
     sourceMaterial := #[
       ⟨"MiL 2", "https://leanprover-community.github.io/mathematics_in_lean/C02_Basics.html"⟩,
       ⟨"MiL 7–9", "https://leanprover-community.github.io/mathematics_in_lean/C07_Structures.html"⟩
@@ -177,7 +177,6 @@ def schedule : Array Meeting := #[
     date := date "2026-12-02" "Dec 2"
     kind := .lecture 13
     title := "Agentic Lean proof generation I"
-    detail := some "Proof states, retrieval, search loops, generation, and checking."
     application := some "Explore a generate–check–retry proof agent."
     work := some (work "Project work")
   },
@@ -185,7 +184,6 @@ def schedule : Array Meeting := #[
     date := date "2026-12-09" "Dec 9"
     kind := .lecture 14
     title := "Agentic Lean proof generation II"
-    detail := some "Learned proof generation, tree search, verifier feedback, and reinforcement learning."
     application := some "Run and evaluate an existing prover-training system."
     work := some (work "Project work")
   }
