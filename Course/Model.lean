@@ -51,6 +51,7 @@ structure Book where
 structure Contact where
   name : String
   email : String
+  website : Option String := none
 
 /-- Stable facts used in the page header, information table, and footer. -/
 structure CourseInfo where
@@ -61,8 +62,10 @@ structure CourseInfo where
   location : String
   instructor : Contact
   officeHours : String
-  sectionLeader : Contact
-  lab : String
+  teachingAssistant : Contact
+  discussion : String
+  discussionLocation : ResourceLink
+  syllabusUrl : String
   sourceUrl : String
 
 end Course

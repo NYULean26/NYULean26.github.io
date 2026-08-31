@@ -72,15 +72,21 @@ def principalTextList : Html :=
 def additionalReferenceList : Html :=
   {{ <ul class="book-list">{{Course.additionalReferences.map bookItem}}</ul> }}
 
+private def contactName (contact : Contact) : Html :=
+  match contact.website with
+  | none => {{ <span>{{contact.name}}</span> }}
+  | some url => {{ <a href={{url}}>{{contact.name}}</a> }}
+
 /-- Contact and meeting information generated from `Course.courseInfo`. -/
 def courseInformation : Html :=
   let info := Course.courseInfo
   {{
     <dl class="course-info">
-      <div><dt>"Instructor"</dt><dd>{{info.instructor.name}}" · "<a href=s!"mailto:{info.instructor.email}">{{info.instructor.email}}</a></dd></div>
+      <div><dt>"Instructor"</dt><dd>{{contactName info.instructor}}" · "<a href=s!"mailto:{info.instructor.email}">{{info.instructor.email}}</a></dd></div>
       <div><dt>"Office hours"</dt><dd>{{info.officeHours}}</dd></div>
-      <div><dt>"Section leader"</dt><dd>{{info.sectionLeader.name}}" · "<a href=s!"mailto:{info.sectionLeader.email}">{{info.sectionLeader.email}}</a></dd></div>
-      <div><dt>"Lab"</dt><dd>{{info.lab}}</dd></div>
+      <div><dt>"Teaching assistant"</dt><dd>{{contactName info.teachingAssistant}}" · "<a href=s!"mailto:{info.teachingAssistant.email}">{{info.teachingAssistant.email}}</a></dd></div>
+      <div><dt>"Discussion section"</dt><dd>{{info.discussion}}" · "<a href={{info.discussionLocation.url}}>{{info.discussionLocation.label}}</a></dd></div>
+      <div><dt>"Syllabus"</dt><dd><a href={{info.syllabusUrl}}>"PDF"</a></dd></div>
     </dl>
   }}
 

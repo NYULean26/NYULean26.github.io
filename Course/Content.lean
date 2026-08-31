@@ -16,10 +16,22 @@ def courseInfo : CourseInfo := {
   listings := "DS-GA 3001 · 007 / MATH-GA 2650"
   lecture := "Wednesdays, 10:15 am–12:15 pm"
   location := "12 Waverly Place, room L120"
-  instructor := ⟨"Jaume de Dios Pont", "jdedios@nyu.edu"⟩
+  instructor := {
+    name := "Jaume de Dios Pont"
+    email := "jdedios@nyu.edu"
+  }
   officeHours := "Tuesdays, 4–5 pm · 60 Fifth Avenue, office 615"
-  sectionLeader := ⟨"Niket Patel", "nnp5656@nyu.edu"⟩
-  lab := "Thursdays, 11:15 am–12:05 pm · room to be announced"
+  teachingAssistant := {
+    name := "Niket Patel"
+    email := "nnp5656@nyu.edu"
+    website := some "https://cds.nyu.edu/team/niket-patel/"
+  }
+  discussion := "Thursdays, 11:15 am–12:05 pm"
+  discussionLocation := {
+    label := "Tisch Hall (40 W 4th St), room LC9"
+    url := "https://www.google.com/maps/search/40+W+4th+St?entry=gmail&source=g"
+  }
+  syllabusUrl := "assets/syllabus-fall-2026.pdf"
   sourceUrl := "https://github.com/NYULean26/NYULean26.github.io"
 }
 
