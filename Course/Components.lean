@@ -19,20 +19,23 @@ private def workOrDash (item : Option CourseWork) : Html :=
   | some ⟨label, none⟩ => {{ <span>{{label}}</span> }}
   | some ⟨label, some url⟩ => {{ <a href={{url}}>{{label}}</a> }}
 
-private def weekIndicator (number : Nat) (lectureFile : Option LectureFile) : Html :=
-  let label := s!"W{number}"
-  match lectureFile with
-  | none => {{ <span class="week-number">{{label}}</span> }}
-  | some file =>
-    {{
-      <details class="week-materials">
-        <summary class="week-summary">{{label}}</summary>
-        <div class="week-file">
-          <code>{{file.name}}</code>
-          <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
-        </div>
-      </details>
-    }}
+private def weekIndicator (number : Nat) : Html :=
+  {{ <span class="week-number">{{s!"W{number}"}}</span> }}
+
+private def lectureFileRow (number : Nat) (file : LectureFile) : Html :=
+  {{
+    <tr class="materials-row">
+      <td colspan="4">
+        <details class="week-materials">
+          <summary class="week-summary">{{s!"W{number}"}}</summary>
+          <div class="week-file">
+            <code>{{file.name}}</code>
+            <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
+          </div>
+        </details>
+      </td>
+    </tr>
+  }}
 
 private def meetingRow (meeting : Meeting) : Html :=
   let detail :=
@@ -43,18 +46,24 @@ private def meetingRow (meeting : Meeting) : Html :=
     match meeting.application with
     | none => {{ <span class="empty">"—"</span> }}
     | some applicationText => {{ <span>{{applicationText}}</span> }}
-  let (rowAttributes, week) :=
+  let (rowAttributes, week, materials) :=
     match meeting.kind with
-    | .lecture number => (#[], weekIndicator number meeting.lectureFile)
-    | .noClass => (#[("class", "no-class")], Html.empty)
-  {{
-    <tr {{rowAttributes}}>
-      <td class="date-cell"><time datetime={{meeting.date.iso}}>{{meeting.date.label}}</time>{{week}}</td>
-      <td class="concepts-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
-      <td class="application-cell">{{application}}</td>
-      <td class="work-cell">{{workOrDash meeting.work}}</td>
-    </tr>
-  }}
+    | .lecture number =>
+      match meeting.lectureFile with
+      | none => (#[], weekIndicator number, Html.empty)
+      | some file => (#[("class", "has-materials")], Html.empty, lectureFileRow number file)
+    | .noClass => (#[("class", "no-class")], Html.empty, Html.empty)
+  Html.seq #[
+    {{
+      <tr {{rowAttributes}}>
+        <td class="date-cell"><time datetime={{meeting.date.iso}}>{{meeting.date.label}}</time>{{week}}</td>
+        <td class="concepts-cell"><strong>{{meeting.title}}</strong>{{detail}}</td>
+        <td class="application-cell">{{application}}</td>
+        <td class="work-cell">{{workOrDash meeting.work}}</td>
+      </tr>
+    }},
+    materials
+  ]
 
 /-- The complete schedule table, generated from `Course.schedule`. -/
 def scheduleTable : Html :=

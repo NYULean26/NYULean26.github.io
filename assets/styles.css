@@ -178,10 +178,18 @@ td:last-child { padding-right: 0; }
   font-size: .72rem;
 }
 
-.week-materials { margin-top: .08rem; }
+.has-materials td { border-bottom: 0; }
+
+.materials-row td {
+  padding: 0;
+  border-bottom: 1px solid var(--soft-rule);
+}
+
+.week-materials { margin: 0; }
 
 .week-summary {
   width: max-content;
+  padding: .08rem 0 .48rem;
   color: var(--muted);
   cursor: pointer;
   font-size: .72rem;
@@ -193,13 +201,15 @@ td:last-child { padding-right: 0; }
 }
 
 .week-file {
-  margin-top: .2rem;
-  font-size: .68rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-left: 6.15rem;
+  padding: .58rem .55rem .72rem;
+  border-top: 1px solid var(--soft-rule);
+  font-size: .78rem;
   line-height: 1.4;
 }
-
-.week-file code,
-.week-file-links { display: block; }
 
 .week-file code { color: var(--text); }
 
@@ -330,6 +340,25 @@ footer p,
   .application-cell,
   .work-cell { font-size: .84rem; }
   .no-class { min-height: 4.1rem; background: #fafafa; }
+
+  .has-materials {
+    padding-bottom: .25rem;
+    border-bottom: 0;
+  }
+
+  .materials-row { padding: .15rem 0 .8rem 5.6rem; }
+  .materials-row .week-summary { margin-left: -5.6rem; }
+
+  .week-file {
+    display: block;
+    margin-left: 0;
+    padding: .5rem 0 0;
+  }
+
+  .week-file-links {
+    display: block;
+    margin-top: .12rem;
+  }
 
   .course-info > div { grid-template-columns: 1fr; gap: .1rem; }
   footer { align-items: flex-start; flex-direction: column; }
