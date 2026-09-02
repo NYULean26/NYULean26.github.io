@@ -201,9 +201,6 @@ td:last-child { padding-right: 0; }
 }
 
 .week-file {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
   margin-left: 6.15rem;
   padding: .58rem .55rem .72rem;
   border-top: 1px solid var(--soft-rule);
@@ -212,6 +209,20 @@ td:last-child { padding-right: 0; }
 }
 
 .week-file code { color: var(--text); }
+
+.week-file-primary {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.week-resource-list {
+  padding: 0;
+  margin: .32rem 0 0;
+  list-style: none;
+}
+
+.week-resource-list li + li { margin-top: .12rem; }
 
 .concepts-cell strong { font-weight: 700; }
 
@@ -350,10 +361,11 @@ footer p,
   .materials-row .week-summary { margin-left: -5.6rem; }
 
   .week-file {
-    display: block;
     margin-left: 0;
     padding: .5rem 0 0;
   }
+
+  .week-file-primary { display: block; }
 
   .week-file-links {
     display: block;

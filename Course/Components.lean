@@ -22,15 +22,22 @@ private def workOrDash (item : Option CourseWork) : Html :=
 private def weekIndicator (number : Nat) : Html :=
   {{ <span class="week-number">{{s!"W{number}"}}</span> }}
 
-private def lectureFileRow (number : Nat) (file : LectureFile) : Html :=
+private def resourceItem (resource : ResourceLink) : Html :=
+  {{ <li><a href={{resource.url}}>{{resource.label}}</a></li> }}
+
+private def lectureFileRow
+    (number : Nat) (file : LectureFile) (resources : Array ResourceLink) : Html :=
   {{
     <tr class="materials-row">
       <td colspan="4">
         <details class="week-materials">
           <summary class="week-summary">{{s!"W{number}"}}</summary>
           <div class="week-file">
-            <code>{{file.name}}</code>
-            <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
+            <div class="week-file-primary">
+              <code>{{file.name}}</code>
+              <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
+            </div>
+            <ul class="week-resource-list">{{resources.map resourceItem}}</ul>
           </div>
         </details>
       </td>
@@ -51,7 +58,9 @@ private def meetingRow (meeting : Meeting) : Html :=
     | .lecture number =>
       match meeting.lectureFile with
       | none => (#[], weekIndicator number, Html.empty)
-      | some file => (#[("class", "has-materials")], Html.empty, lectureFileRow number file)
+      | some file =>
+        (#[("class", "has-materials")], Html.empty,
+          lectureFileRow number file meeting.materials)
     | .noClass => (#[("class", "no-class")], Html.empty, Html.empty)
   Html.seq #[
     {{
