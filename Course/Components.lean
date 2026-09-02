@@ -86,6 +86,7 @@ def courseInformation : Html :=
       <div><dt>"Office hours"</dt><dd>{{info.officeHours}}</dd></div>
       <div><dt>"Teaching assistant"</dt><dd>{{contactName info.teachingAssistant}}" · "<a href=s!"mailto:{info.teachingAssistant.email}">{{info.teachingAssistant.email}}</a></dd></div>
       <div><dt>"Discussion section"</dt><dd>{{info.discussion}}" · "<a href={{info.discussionLocation.url}}>{{info.discussionLocation.label}}</a></dd></div>
+      <div><dt>"Zoom"</dt><dd><a href={{info.zoomUrl}}>"Join meeting"</a></dd></div>
       <div><dt>"Syllabus"</dt><dd><a href={{info.syllabusUrl}}>"PDF"</a></dd></div>
     </dl>
   }}

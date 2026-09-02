@@ -31,6 +31,7 @@ def courseInfo : CourseInfo := {
     label := "Tisch Hall (40 W 4th St), room LC9"
     url := "https://www.google.com/maps/search/40+W+4th+St?entry=gmail&source=g"
   }
+  zoomUrl := "https://nyu.zoom.us/j/97327526479"
   syllabusUrl := "assets/syllabus-fall-2026.pdf"
   sourceUrl := "https://github.com/NYULean26/NYULean26.github.io"
 }

@@ -65,6 +65,7 @@ structure CourseInfo where
   teachingAssistant : Contact
   discussion : String
   discussionLocation : ResourceLink
+  zoomUrl : String
   syllabusUrl : String
   sourceUrl : String
 
