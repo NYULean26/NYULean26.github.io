@@ -19,6 +19,21 @@ private def workOrDash (item : Option CourseWork) : Html :=
   | some ⟨label, none⟩ => {{ <span>{{label}}</span> }}
   | some ⟨label, some url⟩ => {{ <a href={{url}}>{{label}}</a> }}
 
+private def weekIndicator (number : Nat) (lectureFile : Option LectureFile) : Html :=
+  let label := s!"W{number}"
+  match lectureFile with
+  | none => {{ <span class="week-number">{{label}}</span> }}
+  | some file =>
+    {{
+      <details class="week-materials">
+        <summary class="week-summary">{{label}}</summary>
+        <div class="week-file">
+          <code>{{file.name}}</code>
+          <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
+        </div>
+      </details>
+    }}
+
 private def meetingRow (meeting : Meeting) : Html :=
   let detail :=
     match meeting.detail with
@@ -30,7 +45,7 @@ private def meetingRow (meeting : Meeting) : Html :=
     | some applicationText => {{ <span>{{applicationText}}</span> }}
   let (rowAttributes, week) :=
     match meeting.kind with
-    | .lecture number => (#[], {{ <span class="week-number">{{s!"W{number}"}}</span> }})
+    | .lecture number => (#[], weekIndicator number meeting.lectureFile)
     | .noClass => (#[("class", "no-class")], Html.empty)
   {{
     <tr {{rowAttributes}}>

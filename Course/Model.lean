@@ -13,6 +13,12 @@ structure ResourceLink where
   label : String
   url : String
 
+/-- A lecture file together with its repository and browser-editor links. -/
+structure LectureFile where
+  name : String
+  githubUrl : String
+  liveUrl : String
+
 /-- A date represented both for readers and for HTML's machine-readable `datetime`. -/
 structure CourseDate where
   iso : String
@@ -35,6 +41,7 @@ structure Meeting where
   title : String
   detail : Option String := none
   application : Option String := none
+  lectureFile : Option LectureFile := none
   sourceMaterial : Array ResourceLink := #[]
   materials : Array ResourceLink := #[]
   work : Option CourseWork := none

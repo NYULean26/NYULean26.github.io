@@ -48,6 +48,11 @@ def schedule : Array Meeting := #[
     title := "Introduction to Lean"
     detail := some "Expressions, definitions, theorem statements, the editor, and Infoview."
     application := some "Elementary arithmetic with the Natural Number Game."
+    lectureFile := some {
+      name := "Lecture01.lean"
+      githubUrl := "https://github.com/NYULean26/Lectures/blob/main/Week%2001/Lecture01.lean"
+      liveUrl := "https://live.lean-lang.org/#project=MathlibDemo&url=https%3A%2F%2Fraw.githubusercontent.com%2FNYULean26%2FLectures%2Frefs%2Fheads%2Fmain%2FWeek%252001%2FLecture01.lean"
+    }
     sourceMaterial := #[
       ⟨"FPiL 1", "https://lean-lang.org/functional_programming_in_lean/Getting-to-Know-Lean/"⟩,
       ⟨"Natural Number Game", "https://adam.math.hhu.de/"⟩

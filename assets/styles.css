@@ -178,6 +178,31 @@ td:last-child { padding-right: 0; }
   font-size: .72rem;
 }
 
+.week-materials { margin-top: .08rem; }
+
+.week-summary {
+  width: max-content;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .72rem;
+}
+
+.week-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.week-file {
+  margin-top: .2rem;
+  font-size: .68rem;
+  line-height: 1.4;
+}
+
+.week-file code,
+.week-file-links { display: block; }
+
+.week-file code { color: var(--text); }
+
 .concepts-cell strong { font-weight: 700; }
 
 .meeting-detail {
