@@ -56,7 +56,8 @@ def schedule : Array Meeting := #[
     materials := #[
       ⟨"Lecture slides", "https://github.com/NYULean26/Lectures/blob/main/Week%2001/Lecture01.pdf"⟩,
       ⟨"Lean Game Server", "https://adam.math.hhu.de/"⟩,
-      ⟨"Lean installation guide", "https://lean-lang.org/install/"⟩
+      ⟨"Lean installation guide", "https://lean-lang.org/install/"⟩,
+      ⟨"You may find these slides interesting as well", "https://thefundamentaltheor3m.github.io/beamers/tifr-2026/slides.pdf"⟩
     ]
     sourceMaterial := #[
       ⟨"FPiL 1", "https://lean-lang.org/functional_programming_in_lean/Getting-to-Know-Lean/"⟩,
