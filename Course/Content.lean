@@ -75,6 +75,9 @@ def schedule : Array Meeting := #[
       ⟨"TPiL 3–5", "https://lean-lang.org/theorem_proving_in_lean4/Propositions-and-Proofs/"⟩,
       ⟨"MiL 3", "https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html"⟩
     ]
+    materials := #[
+      ⟨"Strongly recommended reading, not specifically for Week 2 but for understanding mathematics in the times of formalization.", "https://arxiv.org/abs/math/9404236"⟩
+    ]
     work := some (work "Homework 1")
   },
   {

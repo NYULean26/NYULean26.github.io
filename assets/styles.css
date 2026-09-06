@@ -222,6 +222,8 @@ td:last-child { padding-right: 0; }
   list-style: none;
 }
 
+.week-resource-list:first-child { margin-top: 0; }
+
 .week-resource-list li + li { margin-top: .12rem; }
 
 .concepts-cell strong { font-weight: 700; }

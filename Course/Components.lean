@@ -25,18 +25,26 @@ private def weekIndicator (number : Nat) : Html :=
 private def resourceItem (resource : ResourceLink) : Html :=
   {{ <li><a href={{resource.url}}>{{resource.label}}</a></li> }}
 
-private def lectureFileRow
-    (number : Nat) (file : LectureFile) (resources : Array ResourceLink) : Html :=
+private def lectureFileItem (file : Option LectureFile) : Html :=
+  match file with
+  | none => Html.empty
+  | some file =>
+    {{
+      <div class="week-file-primary">
+        <code>{{file.name}}</code>
+        <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
+      </div>
+    }}
+
+private def weekMaterialsRow
+    (number : Nat) (file : Option LectureFile) (resources : Array ResourceLink) : Html :=
   {{
     <tr class="materials-row">
       <td colspan="4">
         <details class="week-materials">
           <summary class="week-summary">{{s!"W{number}"}}</summary>
           <div class="week-file">
-            <div class="week-file-primary">
-              <code>{{file.name}}</code>
-              <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
-            </div>
+            {{lectureFileItem file}}
             <ul class="week-resource-list">{{resources.map resourceItem}}</ul>
           </div>
         </details>
@@ -57,10 +65,15 @@ private def meetingRow (meeting : Meeting) : Html :=
     match meeting.kind with
     | .lecture number =>
       match meeting.lectureFile with
-      | none => (#[], weekIndicator number, Html.empty)
+      | none =>
+        if meeting.materials.isEmpty then
+          (#[], weekIndicator number, Html.empty)
+        else
+          (#[("class", "has-materials")], Html.empty,
+            weekMaterialsRow number none meeting.materials)
       | some file =>
         (#[("class", "has-materials")], Html.empty,
-          lectureFileRow number file meeting.materials)
+          weekMaterialsRow number (some file) meeting.materials)
     | .noClass => (#[("class", "no-class")], Html.empty, Html.empty)
   Html.seq #[
     {{
