@@ -19,6 +19,11 @@ structure LectureFile where
   githubUrl : String
   liveUrl : String
 
+/-- One item shown when a numbered week is expanded in the schedule. -/
+inductive WeekMaterial where
+  | lectureFile (file : LectureFile)
+  | link (resource : ResourceLink)
+
 /-- A date represented both for readers and for HTML's machine-readable `datetime`. -/
 structure CourseDate where
   iso : String
@@ -41,9 +46,8 @@ structure Meeting where
   title : String
   detail : Option String := none
   application : Option String := none
-  lectureFile : Option LectureFile := none
   sourceMaterial : Array ResourceLink := #[]
-  materials : Array ResourceLink := #[]
+  materials : Array WeekMaterial := #[]
   work : Option CourseWork := none
 
 /-- A book used by the course together with its online text and Lean source files. -/

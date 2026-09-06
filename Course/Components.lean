@@ -22,31 +22,26 @@ private def workOrDash (item : Option CourseWork) : Html :=
 private def weekIndicator (number : Nat) : Html :=
   {{ <span class="week-number">{{s!"W{number}"}}</span> }}
 
-private def resourceItem (resource : ResourceLink) : Html :=
-  {{ <li><a href={{resource.url}}>{{resource.label}}</a></li> }}
-
-private def lectureFileItem (file : Option LectureFile) : Html :=
-  match file with
-  | none => Html.empty
-  | some file =>
+private def weekMaterialItem (material : WeekMaterial) : Html :=
+  match material with
+  | .lectureFile file =>
     {{
-      <div class="week-file-primary">
+      <li class="lecture-file">
         <code>{{file.name}}</code>
         <span class="week-file-links"><a href={{file.githubUrl}}>"GitHub repo"</a>" · "<a href={{file.liveUrl}}>"Live Lean"</a></span>
-      </div>
+      </li>
     }}
+  | .link resource =>
+    {{ <li><a href={{resource.url}}>{{resource.label}}</a></li> }}
 
 private def weekMaterialsRow
-    (number : Nat) (file : Option LectureFile) (resources : Array ResourceLink) : Html :=
+    (number : Nat) (materials : Array WeekMaterial) : Html :=
   {{
     <tr class="materials-row">
       <td colspan="4">
         <details class="week-materials">
           <summary class="week-summary">{{s!"W{number}"}}</summary>
-          <div class="week-file">
-            {{lectureFileItem file}}
-            <ul class="week-resource-list">{{resources.map resourceItem}}</ul>
-          </div>
+          <ul class="week-material-list">{{materials.map weekMaterialItem}}</ul>
         </details>
       </td>
     </tr>
@@ -64,16 +59,11 @@ private def meetingRow (meeting : Meeting) : Html :=
   let (rowAttributes, week, materials) :=
     match meeting.kind with
     | .lecture number =>
-      match meeting.lectureFile with
-      | none =>
-        if meeting.materials.isEmpty then
-          (#[], weekIndicator number, Html.empty)
-        else
-          (#[("class", "has-materials")], Html.empty,
-            weekMaterialsRow number none meeting.materials)
-      | some file =>
+      if meeting.materials.isEmpty then
+        (#[], weekIndicator number, Html.empty)
+      else
         (#[("class", "has-materials")], Html.empty,
-          weekMaterialsRow number (some file) meeting.materials)
+          weekMaterialsRow number meeting.materials)
     | .noClass => (#[("class", "no-class")], Html.empty, Html.empty)
   Html.seq #[
     {{
