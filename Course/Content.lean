@@ -76,6 +76,7 @@ def schedule : Array Meeting := #[
       ⟨"MiL 3", "https://leanprover-community.github.io/mathematics_in_lean/C03_Logic.html"⟩
     ]
     materials := #[
+      .link ⟨"Lecture slides", "assets/week02.pdf"⟩,
       .link ⟨"Strongly recommended reading, not specifically for Week 2 but for understanding mathematics in the times of formalization.", "https://arxiv.org/abs/math/9404236"⟩
     ]
     work := some (work "Homework 1")
