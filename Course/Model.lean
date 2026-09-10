@@ -74,6 +74,7 @@ structure CourseInfo where
   instructor : Contact
   officeHours : String
   teachingAssistant : Contact
+  taOfficeHours : String
   discussion : String
   discussionLocation : ResourceLink
   zoomUrl : String
