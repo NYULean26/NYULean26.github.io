@@ -41,6 +41,8 @@ private def date (iso label : String) : CourseDate := ⟨iso, label⟩
 
 private def work (label : String) : CourseWork := ⟨label, none⟩
 
+private def linkedWork (label url : String) : CourseWork := ⟨label, some url⟩
+
 /-- The tentative Fall 2026 lecture schedule. -/
 def schedule : Array Meeting := #[
   {
@@ -86,7 +88,8 @@ def schedule : Array Meeting := #[
       .link ⟨"Discussion Section (Completed)", "https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQOC0hcA5hEunAFwC8cScgBkRy6H4lkU1wAU9tWASjiAkwjgAxcgGcApnBzppIEPVTT0YaVB70sVOIFRCEXABCECOiHcAdnv2WA7sHiU6cG011WhL%2Bh6r8ATzk4OGArGCgIOFQQnBCkMDB0IMcYOLhpAA8kAGN4bhyIK2IoMQBXGxivPAUlFTUNKAB9GE0QbWZbI1NzSxsXOx5UvXp3Tq8Rxk6udIAzCui4QDLCYOYgrNz4YYKikvLKtwE8NGloRTgcpHDoJoATYCRSK3JgAC8UYCKeWaQQYGSuqJuIZRD0LN50iFAMBEcHujyK5EBJjM6AANHBAABEbnRcKeiKYPz%2BAP6gXSZRkcHmNn6BmWcAAhIT%2FkFqXAiLiERRuMQhOkwhEou10gkkkFVOpNC02t8FjTDCtGb9mW5Dt8lQCQEIhSENnlkeYAHRWCAwJrG03SACOBvAWigs3Q6RwJzO7Uu12aHOemHeME%2BVilUHa3CZAIGRmB3RRAghIWhsIeeM4tNBKPRWKsOMTnKmoZZ%2FjggAvySmyroKvMqmyoyFx2shKlwJpl6INSWtIONztN7hgo0ms39q02sB2h1CQCX5Hg8LdpLNYRAWo4crJuIBG4BcABUAhpLHOXKujKvvHAD6ID1wG5k9AeVnOQ3BMkccDO55JLWUkFAV3Lj4YuDYACo3DwABiaQADdEVuBcYCXWRDDfD8vzgAAmadZwuMooCgII1zgQAm4DgQBm4D0Lcd2%2Ba84AAdYIowiOPU9aNEEiuEkaAcPQucKhyLCcJ4A9CJYuAyOkXdKNEQjmIY6imOIgs2OwgIcCAA"⟩,
       .link ⟨"Strongly recommended reading, not specifically for Week 2 but for understanding mathematics in the times of formalization.", "https://arxiv.org/abs/math/9404236"⟩
     ]
-    work := some (work "Homework 1")
+    work := some (linkedWork "Homework 1"
+      "https://github.com/NYULean26/Lectures/blob/main/Week%2002/Homework01.lean")
   },
   {
     date := date "2026-09-16" "Sep 16"
