@@ -20,6 +20,14 @@ htmlId := some "announcements"
 
 :::html div (class := "announcement")
 
+*Sep 23*
+
+*Today's class will meet on Zoom.* [Join the meeting](https://nyu.zoom.us/j/97327526479).
+
+:::
+
+:::html div (class := "announcement")
+
 *Aug 26*
 
 The first class is Wednesday, September 2. [Join on Zoom](https://nyu.zoom.us/j/97327526479). Bring a laptop. Before class, you can try to [install Lean and the VS Code extension](https://lean-lang.org/install/), but we will not need it on the first day. We will begin with the [Natural Number Game](https://adam.math.hhu.de/).
