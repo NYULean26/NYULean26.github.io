@@ -130,7 +130,8 @@ def schedule : Array Meeting := #[
       .link ⟨"Lecture slides", "https://github.com/NYULean26/Lectures/blob/main/Week%2004/Lecture04.pdf"⟩,
       .link ⟨"Discussion Section Live Lean", "https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMBQOAmApgGZwBqhAxgORwAUAdnAFxyCohAJQsC8cAYsCZNASYRxAuIR4AtJLiEAHknDpC9JHCwtyVWgGYurCjTg6ecNQGp1ca3GmyoUaK2JJgy%2FHBgQ4AZwCeDGiEPsAAXioABgASAIL4%2BBF4gj4wSAyUKgDeTKxsAL6acR50hrQMXADuqIRQhDjWSPFmVsy8WH6%2B0FB%2BePKKYMqqLVpGepqlxqYWVjZ2NY5Qzq7unt7%2BgdUh4XDRRYk40jIAKqjAPnBgSLC%2BqBAVPgA0cIJwADKEaU9oKHDE0GYMDoMACuICwNTgDAeUjsxGwEAYSEolGAkLgvDogDHgAB6TEsgAngbF0STlAD0gCwiACseCC0EIIF8MEcDAA5gB9QT4YGUGDABFshFwTIABU0ADkfqJhY4wAVGOKUBx6jY6KhNIAAIkhTzompATwZAB40VK4CAuCbyppRTk2h0fF0egQSL94YjkajctZRGJrMqAD5wAAM6IAfEH%2FXAAIyhqMRhjmABMMbocKwCKRKMhXEsKddGdR8sskY4SoOMiqQIRlAg4GBqSwg2qtQA%2FHgGFWa2A60gGyoiKRMZofa16NHLFSOKSEzh2%2BlO93e3B%2B3B8UPTHRozIJ1O2x3a%2FXBsvU%2Bn3bR5ZpOGuRzimDJI6Sb3hlCAQGpIOg%2FGzapR6ItxFxGFyADUD%2FKBsSTXgoHMYtNDgZUwMYRMuEgol4xgywwJtdQ7QdZUyzgAARYBv3gat9xQPkmB8W57k8VAfkHVd7XQAA3YI6JUb9gSgEIERwZ9XzgTE2WYtjzlYHEIKEuAi1MdpOgcHoBLUfERIgVj2NYQkpNXWSR3k%2B1FJpao6QZVM2UIABHYEkEwGAOkAy9WGVY83UzJgMRvWwV1xScqWVfScKMnAgA"⟩
     ]
-    work := some (work "Homework 2")
+    work := some (linkedWork "Homework 2"
+      "https://github.com/NYULean26/Lectures/blob/main/Week%2004/Homework02.lean")
   },
   {
     date := date "2026-09-30" "Sep 30"
