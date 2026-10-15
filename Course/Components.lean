@@ -35,12 +35,12 @@ private def weekMaterialItem (material : WeekMaterial) : Html :=
     {{ <li><a href={{resource.url}}>{{resource.label}}</a></li> }}
 
 private def weekMaterialsRow
-    (number : Nat) (materials : Array WeekMaterial) : Html :=
+    (label : String) (materials : Array WeekMaterial) : Html :=
   {{
     <tr class="materials-row">
       <td colspan="4">
         <details class="week-materials">
-          <summary class="week-summary">{{s!"W{number}"}}</summary>
+          <summary class="week-summary">{{label}}</summary>
           <ul class="week-material-list">{{materials.map weekMaterialItem}}</ul>
         </details>
       </td>
@@ -63,8 +63,13 @@ private def meetingRow (meeting : Meeting) : Html :=
         (#[], weekIndicator number, Html.empty)
       else
         (#[("class", "has-materials")], Html.empty,
-          weekMaterialsRow number meeting.materials)
-    | .noClass => (#[("class", "no-class")], Html.empty, Html.empty)
+          weekMaterialsRow s!"W{number}" meeting.materials)
+    | .noClass =>
+      if meeting.materials.isEmpty then
+        (#[("class", "no-class")], Html.empty, Html.empty)
+      else
+        (#[("class", "no-class has-materials")], Html.empty,
+          weekMaterialsRow "Materials" meeting.materials)
   Html.seq #[
     {{
       <tr {{rowAttributes}}>

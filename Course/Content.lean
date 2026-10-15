@@ -177,6 +177,9 @@ def schedule : Array Meeting := #[
     kind := .noClass
     title := "No class"
     detail := some "Legislative Day: NYU follows a Monday schedule."
+    materials := #[
+      .link ⟨"Lean at scale: caching, reproducible projects, and tooling (slides)", "assets/lean-infrastructure-classroom.pdf"⟩
+    ]
   },
   {
     date := date "2026-10-21" "Oct 21"
