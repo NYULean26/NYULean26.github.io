@@ -67,8 +67,8 @@ htmlId := some "coursework"
 
 :::htmlDiv (class := "compact-list")
 
-* *Homework 1–4.* Lean worksheets due at the end of weeks 2, 4, 6, and 8. Submission is through Gradescope.
-* *Quizzes 1–4.* Short in-person quizzes in lab during weeks 3, 5, 7, and 9.
+* *Homework 1–4.* Lean worksheets due at the end of weeks 2, 4, 7, and 9. Submission is through Gradescope.
+* *Quizzes 1–4.* Short in-person quizzes in lab during weeks 3, 5, 8, and 10.
 * *Final project.* Project instructions and the due date will be posted here.
 
 :::
