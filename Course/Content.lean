@@ -26,7 +26,7 @@ def courseInfo : CourseInfo := {
     email := "nnp5656@nyu.edu"
     website := some "https://cds.nyu.edu/team/niket-patel/"
   }
-  taOfficeHours := "Fridays, 2–3 pm · 60 Fifth Avenue, CDS room 244"
+  taOfficeHours := "Fridays, 2–3 pm · 60 Fifth Avenue, CDS room 244 · No office hours Friday, Oct 23"
   discussion := "Thursdays, 11:15 am–12:05 pm"
   discussionLocation := {
     label := "Tisch Hall (40 W 4th St), room LC9"
