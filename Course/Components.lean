@@ -13,11 +13,16 @@ namespace Course.Components
 
 open Verso.Output Html
 
-private def workOrDash (item : Option CourseWork) : Html :=
+private def workItem (item : CourseWork) : Html :=
   match item with
-  | none => {{ <span class="empty">"—"</span> }}
-  | some ⟨label, none⟩ => {{ <span>{{label}}</span> }}
-  | some ⟨label, some url⟩ => {{ <a href={{url}}>{{label}}</a> }}
+  | ⟨label, none⟩ => {{ <span>{{label}}</span> }}
+  | ⟨label, some url⟩ => {{ <a href={{url}}>{{label}}</a> }}
+
+private def workOrDash (items : Array CourseWork) : Html :=
+  if items.isEmpty then
+    {{ <span class="empty">"—"</span> }}
+  else
+    Html.seq (items.map fun item => {{ <div>{{workItem item}}</div> }})
 
 private def weekIndicator (number : Nat) : Html :=
   {{ <span class="week-number">{{s!"W{number}"}}</span> }}

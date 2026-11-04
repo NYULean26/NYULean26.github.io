@@ -48,7 +48,7 @@ structure Meeting where
   application : Option String := none
   sourceMaterial : Array ResourceLink := #[]
   materials : Array WeekMaterial := #[]
-  work : Option CourseWork := none
+  work : Array CourseWork := #[]
 
 /-- A book used by the course together with its online text and Lean source files. -/
 structure Book where
