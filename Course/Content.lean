@@ -274,6 +274,7 @@ def schedule : Array Meeting := #[
       .link ⟨"Lecture10_Instructor.lean (Instructor)", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10_Instructor.lean"⟩,
       .link ⟨"Lecture slides", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10.pdf"⟩,
       .link ⟨"Python setup and class instructions", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/README.md"⟩,
+      .link ⟨"Python setup script", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/setup_sos.sh"⟩,
       .link ⟨"Python SOS adapter", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/find_sos.py"⟩
     ]
   },
