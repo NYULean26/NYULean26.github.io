@@ -259,13 +259,23 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-11" "Nov 11"
     kind := .lecture 10
-    title := "Metaprogramming II: Tactics"
-    detail := some "Goals, metavariables, expressions, and recursive tactics."
-    application := some "Build a small positivity tactic."
+    title := "Metaprogramming II: Asking another computer"
+    detail := some "Expressions, metavariables, tactic construction, and external results."
+    application := some "Call a Python sum-of-squares library and verify its certificate in Lean."
     sourceMaterial := #[
-      ⟨"MPiL", "https://leanprover-community.github.io/lean4-metaprogramming-book/"⟩
+      ⟨"MPiL 3–4, 7, 9", "https://leanprover-community.github.io/lean4-metaprogramming-book/"⟩,
+      ⟨"Macbeth: metaprogramming", "https://github.com/hrmacbeth/Simons2025/tree/main/Simons2025/Metaprogramming"⟩,
+      ⟨"LoVe 8", "https://github.com/lean-forward/logical_verification_2026/blob/main/lean/LoVe/LoVe08_Metaprogramming_Demo.lean"⟩,
+      ⟨"FPiL: IO", "https://lean-lang.org/functional_programming_in_lean/Monads/The-IO-Monad/"⟩
     ]
-
+    materials := #[
+      .link ⟨"Lecture10.lean (Problems)", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10.lean"⟩,
+      .link ⟨"Lecture10_Solution.lean (Solutions)", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10_Solution.lean"⟩,
+      .link ⟨"Lecture10_Instructor.lean (Instructor)", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10_Instructor.lean"⟩,
+      .link ⟨"Lecture slides", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/Lecture10.pdf"⟩,
+      .link ⟨"Python setup and class instructions", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/README.md"⟩,
+      .link ⟨"Python SOS adapter", "https://github.com/NYULean26/Lectures/blob/main/Week%2010/find_sos.py"⟩
+    ]
   },
   {
     date := date "2026-11-18" "Nov 18"
