@@ -281,11 +281,23 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-18" "Nov 18"
     kind := .lecture 11
-    title := "Metaprogramming III: Trusted proof automation"
-    detail := some "Reflection, certificates, and the boundary between trusted and untrusted computation."
-    application := some "Build a small sum-of-squares certificate checker."
+    title := "Metaprogramming III: SOS and proofs by reflection"
+    detail := some "External certificates, proofs by reflection, decide, native_decide, and kernel checking."
+    application := some "Build a sum-of-squares tactic using Python, then a monoid reflection tactic."
     sourceMaterial := #[
-      ⟨"MPiL: tactics", "https://leanprover-community.github.io/lean4-metaprogramming-book/"⟩
+      ⟨"CPDT: Proof by Reflection", "https://adam.chlipala.net/cpdt/html/Reflection"⟩,
+      ⟨"MPiL: tactics", "https://leanprover-community.github.io/lean4-metaprogramming-book/main/09_tactics.html"⟩,
+      ⟨"TPiL: Axioms and Computation", "https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/"⟩
+    ]
+    materials := #[
+      .link ⟨"Lecture11.lean (Problems)", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/Lecture11.lean"⟩,
+      .link ⟨"Lecture11_Solution.lean (Solutions)", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/Lecture11_Solution.lean"⟩,
+      .link ⟨"Lecture11_Instructor.lean (Instructor)", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/Lecture11_Instructor.lean"⟩,
+      .link ⟨"Lecture slides", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/Lecture11.pdf"⟩,
+      .link ⟨"Python setup and class instructions", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/README.md"⟩,
+      .link ⟨"Python setup script", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/setup_sos.sh"⟩,
+      .link ⟨"Python SOS adapter", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/find_sos.py"⟩,
+      .link ⟨"Sum-of-squares notebook", "https://github.com/NYULean26/Lectures/blob/main/Week%2011/sum_of_squares.ipynb"⟩
     ]
     work := #[work "Make-up quizzes"]
   },
