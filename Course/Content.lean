@@ -304,11 +304,20 @@ def schedule : Array Meeting := #[
   {
     date := date "2026-11-25" "Nov 25"
     kind := .lecture 12
-    title := "Program verification"
-    detail := some "Specifications, correctness, termination, and inductive semantics."
-    application := some "Operational semantics and Hoare logic."
+    title := "Proofs by reflection and operational semantics"
+    detail := some "Reify polynomial inequalities and prove them by adaptive subdivision. Derive the execution of a while loop using big-step and small-step semantics."
     sourceMaterial := #[
-      ⟨"LoVe 9–10", "https://github.com/lean-forward/logical_verification_2026/blob/main/hitchhikers_guide_2026_desktop.pdf"⟩
+      ⟨"Brown CS1715: LoVe chapter 9", "https://github.com/BrownCS1715/fpv2026/blob/main/LoVe/Lectures/LoVe09_OperationalSemantics_Demo.lean"⟩
+    ]
+    materials := #[
+      .link ⟨"Reflection worksheet", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12.lean"⟩,
+      .link ⟨"Reflection solutions", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12_Solution.lean"⟩,
+      .link ⟨"Reflection instructor copy", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12_Instructor.lean"⟩,
+      .link ⟨"Box.lean (worksheet dependency)", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12/Box.lean"⟩,
+      .link ⟨"Proofs by reflection (slides)", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12.pdf"⟩,
+      .link ⟨"Operational semantics worksheet", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution.lean"⟩,
+      .link ⟨"Operational semantics solutions", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution_Solution.lean"⟩,
+      .link ⟨"Operational semantics instructor copy", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution_Instructor.lean"⟩
     ]
     work := #[work "Project work"]
   },
