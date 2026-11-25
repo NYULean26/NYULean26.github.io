@@ -310,14 +310,7 @@ def schedule : Array Meeting := #[
       ⟨"Brown CS1715: LoVe chapter 9", "https://github.com/BrownCS1715/fpv2026/blob/main/LoVe/Lectures/LoVe09_OperationalSemantics_Demo.lean"⟩
     ]
     materials := #[
-      .link ⟨"Reflection worksheet", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12.lean"⟩,
-      .link ⟨"Reflection solutions", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12_Solution.lean"⟩,
-      .link ⟨"Reflection instructor copy", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12_Instructor.lean"⟩,
-      .link ⟨"Box.lean (worksheet dependency)", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12/Box.lean"⟩,
-      .link ⟨"Proofs by reflection (slides)", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Lecture12.pdf"⟩,
-      .link ⟨"Operational semantics worksheet", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution.lean"⟩,
-      .link ⟨"Operational semantics solutions", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution_Solution.lean"⟩,
-      .link ⟨"Operational semantics instructor copy", "https://github.com/NYULean26/Lectures/blob/main/Week%2012/Program%20semantics/Execution/Execution_Instructor.lean"⟩
+      .link ⟨"Week 12 worksheets and slides", "https://github.com/NYULean26/Lectures/tree/main/Week%2012"⟩
     ]
     work := #[work "Project work"]
   },
